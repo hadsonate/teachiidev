@@ -1,0 +1,542 @@
+<?php
+$config = $this->getConfig();
+$settings = $config->settings;
+?>
+<div class="content-wrapper home">
+    <div class="banner item">
+        <img src="<?php echo $settings["img_dir"]; ?>/banner-pic.png" />
+        <h1>Follow your curiosity</h1>
+        <p>Find teachers and learn anything, anywhere</p>
+        <a href="javascript:void(0)" class="deault button primary learn-more">Learn More</a>
+    </div>
+
+    <div class="search">
+        <div class="filter">
+            <span>Search</span>
+        </div>
+        <input type="text" placeholder="Find the class you're looking for"/>
+        <a href="#" class="button search">
+            <i class="fa fa-search"></i>
+        </a>
+        <div class="search-content">
+            <div class="block categories">
+                <span class="title">Categories</span>
+
+                <div class="content">
+                    <a href="javascript:void(0)"><span>Art</span></a>
+                    <a href="javascript:void(0)"><span>Cooking</span></a>
+                    <a href="javascript:void(0)"><span>Technology</span></a>
+                    <a href="javascript:void(0)"><span>Lifestyle</span></a>
+                    <a href="javascript:void(0)"><span>Music</span></a>
+                    <a href="javascript:void(0)"><span>Language</span></a>
+                    <a href="javascript:void(0)"><span>Performing Arts</span></a>
+                </div>
+            </div>
+
+            <div class="block duration">
+                <span class="title">Duration</span>
+                <div class="content">
+                    <a href="javascript:void(0)"><span>Single</span></a>
+                    <a href="javascript:void(0)"><span>Multi-session</span></a>
+                </div>
+            </div>
+
+            <div class="block location">
+                <span class="title">Location</span>
+                <select>
+                    <option value="">Select Location</option>
+                    <option value="Filter 1">Location 1</option>
+                    <option value="Filter 2">Location 2</option>
+                    <option value="Filter 3">Location 3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="find-block-wrapper">
+        <div class="find-block">
+            <div class="find-teacher">
+                <h1>Find a Teacher</h1>
+                <p>Get to know our teachers! Find the right one for the classes you need.</p>
+                <a href="#teachers-profile" class="default button secondary">View Teachers</a>
+            </div>
+            <div class="find-class">
+                <h1>Find a Class</h1>
+                <p>Check out the courses that haven’t started yet, and find the right one for you.</p>
+                <a href="#upcoming-courses" class="default button secondary">View Courses</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="upcoming-courses courses" id="upcoming-courses">
+    <h2>Upcoming Courses</h2>
+    <ul class="course">
+        <li class="item">
+            <div class="item-wrapper">
+                <div class="top english">
+                    <img src="<?php echo $settings["img_dir"]; ?>/profile.jpeg" />
+                    <span class="time-start">Starts in 3 days</span>
+                    <span class="type">Single</span>
+                    <h1>English</h1>
+                    <iframe width="834" height="556" src="https://www.youtube.com/embed/DoR0gqC6Oaw?rel=0&amp;showinfo=0"
+                            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+                <div class="bottom">
+                    <span class="date">
+                        <a class="fa fa-calendar-alt"></a><span>Oct. 8,2018</span>
+                    </span>
+                            <span class="time">
+                        <a class="fa fa-clock"></a><span>10:00 ~ 11:30</span>
+                    </span>
+                            <span class="rate">
+                        <a class="fa fa-tag"></a><span>TWD $1000</span>
+                    </span>
+                            <span class="rating">
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star-half-alt"></a>
+                    </span>
+                            <span class="wishlist">
+                        <a class="fa fa-heart"></a>
+                    </span>
+                </div>
+            </div>
+        </li>
+
+        <li class="item">
+            <div class="item-wrapper">
+                <div class="top english-culture">
+                    <img src="<?php echo $settings["img_dir"]; ?>/profile.jpeg" />
+                    <span class="time-start">Starts in 3 days</span>
+                    <span class="type">Single</span>
+                    <h1>English & Culture</h1>
+                </div>
+                <div class="bottom">
+                    <span class="date">
+                        <a class="fa fa-calendar-alt"></a><span>Oct. 8,2018</span>
+                    </span>
+                            <span class="time">
+                        <a class="fa fa-clock"></a><span>10:00 ~ 11:30</span>
+                    </span>
+                            <span class="rate">
+                        <a class="fa fa-tag"></a><span>TWD $1000</span>
+                    </span>
+                            <span class="rating">
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star-half-alt"></a>
+                    </span>
+                            <span class="wishlist">
+                        <a class="fa fa-heart"></a>
+                    </span>
+                </div>
+            </div>
+        </li>
+
+        <li class="item">
+            <div class="item-wrapper">
+                <div class="top game-tutor">
+                    <img src="<?php echo $settings["img_dir"]; ?>/profile.jpeg" />
+                    <span class="time-start">Starts in 3 days</span>
+                    <span class="type">Single</span>
+                    <h1>Game Tutor</h1>
+                </div>
+                <div class="bottom">
+                    <span class="date">
+                        <a class="fa fa-calendar-alt"></a><span>Oct. 8,2018</span>
+                    </span>
+                            <span class="time">
+                        <a class="fa fa-clock"></a><span>10:00 ~ 11:30</span>
+                    </span>
+                            <span class="rate">
+                        <a class="fa fa-tag"></a><span>TWD $1000</span>
+                    </span>
+                            <span class="rating">
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star-half-alt"></a>
+                    </span>
+                            <span class="wishlist">
+                        <a class="fa fa-heart"></a>
+                    </span>
+                </div>
+            </div>
+        </li>
+
+        <li class="item">
+            <div class="item-wrapper">
+                <div class="top english-tutoring">
+                    <img src="<?php echo $settings["img_dir"]; ?>/profile.jpeg" />
+                    <span class="time-start">Starts in 3 days</span>
+                    <span class="type">Single</span>
+                    <h1>English Tutoring</h1>
+                </div>
+                <div class="bottom">
+                    <span class="date">
+                        <a class="fa fa-calendar-alt"></a><span>Oct. 8,2018</span>
+                    </span>
+                            <span class="time">
+                        <a class="fa fa-clock"></a><span>10:00 ~ 11:30</span>
+                    </span>
+                            <span class="rate">
+                        <a class="fa fa-tag"></a><span>TWD $1000</span>
+                    </span>
+                            <span class="rating">
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star-half-alt"></a>
+                    </span>
+                            <span class="wishlist">
+                        <a class="fa fa-heart"></a>
+                    </span>
+                </div>
+            </div>
+        </li>
+
+        <li class="item">
+            <div class="item-wrapper">
+                <div class="top cooking">
+                    <img src="<?php echo $settings["img_dir"]; ?>/profile.jpeg" />
+                    <span class="time-start">Starts in 3 days</span>
+                    <span class="type">Single</span>
+                    <h1>Cooking</h1>
+                </div>
+                <div class="bottom">
+                    <span class="date">
+                        <a class="fa fa-calendar-alt"></a><span>Oct. 8,2018</span>
+                    </span>
+                            <span class="time">
+                        <a class="fa fa-clock"></a><span>10:00 ~ 11:30</span>
+                    </span>
+                            <span class="rate">
+                        <a class="fa fa-tag"></a><span>TWD $1000</span>
+                    </span>
+                            <span class="rating">
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star-half-alt"></a>
+                    </span>
+                            <span class="wishlist">
+                        <a class="fa fa-heart"></a>
+                    </span>
+                </div>
+            </div>
+        </li>
+
+        <li class="item">
+            <div class="item-wrapper">
+                <div class="top music">
+                    <img src="<?php echo $settings["img_dir"]; ?>/profile.jpeg" />
+                    <span class="time-start">Starts in 3 days</span>
+                    <span class="type">Single</span>
+                    <h1>Music</h1>
+                </div>
+                <div class="bottom">
+                    <span class="date">
+                        <a class="fa fa-calendar-alt"></a><span>Oct. 8,2018</span>
+                    </span>
+                            <span class="time">
+                        <a class="fa fa-clock"></a><span>10:00 ~ 11:30</span>
+                    </span>
+                            <span class="rate">
+                        <a class="fa fa-tag"></a><span>TWD $1000</span>
+                    </span>
+                            <span class="rating">
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star-half-alt"></a>
+                    </span>
+                            <span class="wishlist">
+                        <a class="fa fa-heart"></a>
+                    </span>
+                </div>
+            </div>
+        </li>
+
+        <li class="item">
+            <div class="item-wrapper">
+                <div class="top english-culture">
+                    <img src="<?php echo $settings["img_dir"]; ?>/profile.jpeg" />
+                    <span class="time-start">Starts in 3 days</span>
+                    <span class="type">Single</span>
+                    <h1>English & Culture</h1>
+                </div>
+                <div class="bottom">
+                    <span class="date">
+                        <a class="fa fa-calendar-alt"></a><span>Oct. 8,2018</span>
+                    </span>
+                            <span class="time">
+                        <a class="fa fa-clock"></a><span>10:00 ~ 11:30</span>
+                    </span>
+                            <span class="rate">
+                        <a class="fa fa-tag"></a><span>TWD $1000</span>
+                    </span>
+                            <span class="rating">
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star-half-alt"></a>
+                    </span>
+                            <span class="wishlist">
+                        <a class="fa fa-heart"></a>
+                    </span>
+                </div>
+            </div>
+        </li>
+
+        <li class="item">
+            <div class="item-wrapper">
+                <div class="top english">
+                    <img src="<?php echo $settings["img_dir"]; ?>/profile.jpeg" />
+                    <span class="time-start">Starts in 3 days</span>
+                    <span class="type">Single</span>
+                    <h1>English</h1>
+                </div>
+                <div class="bottom">
+                    <span class="date">
+                        <a class="fa fa-calendar-alt"></a><span>Oct. 8,2018</span>
+                    </span>
+                            <span class="time">
+                        <a class="fa fa-clock"></a><span>10:00 ~ 11:30</span>
+                    </span>
+                            <span class="rate">
+                        <a class="fa fa-tag"></a><span>TWD $1000</span>
+                    </span>
+                            <span class="rating">
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star-half-alt"></a>
+                    </span>
+                            <span class="wishlist">
+                        <a class="fa fa-heart"></a>
+                    </span>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <a href="#" class="default button secondary">View all courses</a>
+</div>
+
+<div class="teachers-profile teacher profile">
+    <div class="wrapper" id="teachers-profile">
+        <h2>Teacher's Profile</h2>
+
+        <ul>
+            <li class="item">
+                <div class="top">
+                    <img src="<?php echo $settings["img_dir"]; ?>/profile.jpeg" />
+                    <div class="info">
+                        <a href="profile.php">
+                            <span class="name">Kaoru</span>
+                        </a>
+                        <p class="background">Raised and educated in Manhattan with a background in documentary filmmaking.</p>
+                    </div>
+                            <span class="rating">
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star-half-alt"></a>
+                    </span>
+                </div>
+                <div class="bottom">
+                    <div class="subject">
+                        <span>Subjects:</span>
+                        <p>English, Culture, ????, Filmmaking</p>
+                    </div>
+
+                    <div class="interests">
+                        <span>Interests:</span>
+                        <p>Reading, Writing, Filmmaking, Travelling, Puzzles, Chess, Individual Sports</p>
+                    </div>
+
+
+                            <span class="contact">
+                        <a href="#">
+                            <i class="fa fa-phone"></i><span>Contact</span>
+                        </a>
+                    </span>
+
+                            <span class="wishlist">
+                         <a href="#">
+                             <i class="fa fa-heart" aria-hidden="true"></i>
+                         </a>
+                    </span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="top">
+                    <img src="<?php echo $settings["img_dir"]; ?>/profile2.png" />
+                    <div class="info">
+                        <a href="profile.php">
+                            <span class="name">?</span>
+                        </a>
+                        <p class="background">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    </div>
+                            <span class="rating">
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star-half-alt"></a>
+                    </span>
+                </div>
+                <div class="bottom">
+                    <div class="subject">
+                        <span>Subjects:</span>
+                        <p> ????, ??, English</p>
+                    </div>
+
+                    <div class="interests">
+                        <span>Interests:</span>
+                        <p>Extreme Sports, Reading, Writing, Travelling, Puzzles, Origami</p>
+                    </div>
+
+
+                            <span class="contact">
+                        <a href="#">
+                            <i class="fa fa-phone"></i><span>Contact</span>
+                        </a>
+                    </span>
+
+                            <span class="wishlist">
+                         <a href="#">
+                             <i class="fa fa-heart" aria-hidden="true"></i>
+                         </a>
+                    </span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="top">
+                    <img src="<?php echo $settings["img_dir"]; ?>/profile.jpeg" />
+                    <div class="info">
+                        <a href="profile.php">
+                            <span class="name">Kaoru</span>
+                        </a>
+                        <p class="background">Raised and educated in Manhattan with a background in documentary filmmaking.</p>
+                    </div>
+                            <span class="rating">
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star"></a>
+                        <a class="fa fa-star-half-alt"></a>
+                    </span>
+                </div>
+                <div class="bottom">
+                    <div class="subject">
+                        <span>Subjects:</span>
+                        <p>English, Culture, ????, Filmmaking</p>
+                    </div>
+
+                    <div class="interests">
+                        <span>Interests:</span>
+                        <p>Reading, Writing, Filmmaking, Travelling, Puzzles, Chess, Individual Sports</p>
+                    </div>
+
+
+                            <span class="contact">
+                        <a href="#">
+                            <i class="fa fa-phone"></i><span>Contact</span>
+                        </a>
+                    </span>
+
+                            <span class="wishlist">
+                         <a href="#">
+                             <i class="fa fa-heart" aria-hidden="true"></i>
+                         </a>
+                    </span>
+                </div>
+            </li>
+            <li class="item">
+                <div class="top">
+                    <img src="<?php echo $settings["img_dir"]; ?>/profile2.png" />
+                    <div class="info">
+                        <a href="profile.php">
+                            <span class="name">?</span>
+                        </a>
+                        <p class="background">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    </div>
+                            <span class="rating">
+                                <a class="fa fa-star"></a>
+                                <a class="fa fa-star"></a>
+                                <a class="fa fa-star"></a>
+                                <a class="fa fa-star"></a>
+                                <a class="fa fa-star-half-alt"></a>
+                            </span>
+                </div>
+                <div class="bottom">
+                    <div class="subject">
+                        <span>Subjects:</span>
+                        <p> ????, ??, English</p>
+                    </div>
+
+                    <div class="interests">
+                        <span>Interests:</span>
+                        <p>Extreme Sports, Reading, Writing, Travelling, Puzzles, Origami</p>
+                    </div>
+
+
+                            <span class="contact">
+                        <a href="#">
+                            <i class="fa fa-phone"></i><span>Contact</span>
+                        </a>
+                    </span>
+
+                            <span class="wishlist">
+                       <a href="#">
+                           <i class="fa fa-heart" aria-hidden="true"></i>
+                       </a>
+                    </span>
+                </div>
+            </li>
+        </ul>
+
+        <div class="button-view">
+            <a href="#" class="default button secondary">View all teachers</a>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        var el = $(".course .item-wrapper .top,.course .item-wrapper iframe").get();
+        $(document).bind('mouseover', function(event) {
+            var f = el.indexOf(event.target) === -1
+                ? 'fadeOut'
+                : 'fadeIn';
+            $('.course .item-wrapper iframe').stop(true, true)[f](200);
+        });
+
+        $(document).ready(function(){
+            var nowPlaying = "none";
+
+            $('.courses ul li .top').hover(function(){
+                nowPlaying = $(this).find('iframe').attr('src');
+                $(this).find('iframe').attr('src',nowPlaying+'&autoplay=1&mute=1');
+            }, function(){
+                $(this).find('iframe').attr('src',nowPlaying);
+            });
+
+            $('.search div.filter > span').on('click', function () {
+                $('.search > .search-content').toggleClass('active');
+            });
+        });
+    });
+</script>

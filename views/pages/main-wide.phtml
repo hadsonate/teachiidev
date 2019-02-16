@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <?php $this->getBlock("head") ?>
+	<body class="main-page">
+    <?php $this->getBlock("header") ?>
+        <div class="main-wrap">
+            <div class="global-message">
+                <?php
+                $msg = $this->getMessage();
+
+                ?>
+                <?php if($msg): ?>
+                    <?php
+                        $type = $msg['type'];
+                        $value = $msg['message'];
+                    ?>
+                    <p class="<?php echo $type; ?> "><?php echo $value; ?></p>
+                <?php endif ?>
+
+            </div>
+            <div class="content-wrap">
+                <?php $this->getContent() ?>
+            </div>
+        </div>
+        <?php $this->getBlock("footer") ?>
+	</body>
+</html>

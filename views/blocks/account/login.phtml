@@ -1,0 +1,33 @@
+<div class="login-component-wrap">
+    <div class="form-wrap">
+        <div class="login-banner-wrap">
+<!--            <img class="banner-img-login" src="/skins/default/images/login-banner.jpg" />-->
+        </div>
+        <div class="login-form-wrap">
+            <form method="post" action="/account/loginpost">
+                <div class="element-block">
+                    <!--add label-->
+                    <input class="input-item" name="username" type="text" required placeholder="username" value="" />
+                </div>
+                <div class="element-block">
+                    <!--add label-->
+                    <input class="input-item" name="password" type="password" required placeholder="password" value="" />
+                </div>
+                <div class="element-block">
+                    <button class="form-submit-button" type="submit">
+                        <span>
+                            Sign In
+                        </span>
+                    </button>
+                    <p>
+                        Not a member yet? <a href="/account/register" title="Register Here!" class="sign-up-text">
+                            Join Now!</a>
+                    </p>
+
+                </div>
+
+            </form>
+        </div>
+        <div class="crystal">&nbsp;</div>
+    </div>
+</div>

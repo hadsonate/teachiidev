@@ -1,0 +1,81 @@
+<div class="register-component-wrap">
+    <div class="form-wrap">
+        <div class="register-banner-wrap">
+            &nbsp;
+        </div>
+        <div class="register-form-wrap">
+            <form method="post" action="#">
+                <!--                account-->
+
+                <div class="element-block">
+                    <p class="label">
+                        <span class="bullet">3</span> Configurations
+                    </p>
+                </div>
+
+                <div class="element-block">
+                    <input type="checkbox" /> <label class="sample-label">Recipients</label>
+                </div>
+
+                <div class="element-block">
+                    <input id="emails-list" class="input-item" name="recipients" type="text" required placeholder="Recipients" value="" />
+                </div>
+                <!--<div class="element-block">
+                    <input class="input-item" name="username" type="text" required placeholder="Subject" value="" />
+                </div>-->
+                <div class="element-block">
+
+                    <select required class="input-item" name="civil_status" placeholder="Civil Status">
+                        <option class="initial" value="">Select Category</option>
+                        <option value="single">Assignments/Tasks</option>
+                        <option value="married">Events</option>
+                        <option value="widowed">Memo</option>
+                        <option value="divorced">Banners</option>
+                        <option value="divorced">Personal</option>
+                    </select>
+                    <br/>
+                    <br/>
+                </div>
+                <b/>
+
+
+                <div class="element-block">
+                    <input type="checkbox" /> <label class="sample-label">Required Response</label>
+                </div>
+                <div class="element-block">
+                    <input type="checkbox" /> <label class="sample-label">Can Reply</label>
+                </div>
+                <div class="element-block">
+                    <input type="checkbox" /> <label class="sample-label">Add to Calendar Schedule</label>
+                    <br/>
+                    <br/>
+                </div>
+
+                <div class="element-block">
+                    <label class="sample-label">Start Date time</label>
+                    <input class="input-item" name="date_of_birth" type="datetime-local" required placeholder="Start Date time" value="" />
+                </div>
+                <div class="element-block">
+                    <label class="sample-label">End Date time</label>
+                    <input class="input-item" name="date_of_birth" type="datetime-local" required placeholder="End Date time" value="" />
+                </div>
+
+
+                <div class="element-block">
+                    <button class="form-submit-button" type="submit">
+                        <span>
+                            Create and Send
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="crystal">&nbsp;</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery("#emails-list").tokenInput("/admin/getemails/");
+    });
+</script>

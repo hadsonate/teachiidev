@@ -1,0 +1,61 @@
+
+
+<div class="register-component-wrap">
+    <div class="form-wrap">
+        <div class="">
+            <div class="grid module-wrap" style="width: 100% !important;">
+
+                <?php
+                $content = $this->getNotif();
+                ?>
+                <div class="grid-item timetable-module box-module grid-item--width2">
+                    <div class="module-title" style="font-weight: bolder"><span><?php echo $content['title'] ?></span></div>
+                    <p>by <?php echo $content['username'] ?></p>
+                    <div>
+                        <?php echo html_entity_decode($content['content']) ?>
+                    </div>
+
+                </div>
+
+
+
+                <!-- <div class="crystal">&nbsp;</div>-->
+            </div>
+        </div>
+        <br>
+
+        <div class="register-form-wrap">
+            <form method="post" action="">
+                <!--                account-->
+
+                <div class="element-block">
+                    <textarea name="content" class="jqte-test"></textarea>
+                    <button class="status" type="button">
+                        <span>
+                            Toggle Editor
+                        </span>
+                    </button>
+                </div>
+
+                <div class="element-block">
+                    <button class="form-submit-button" type="submit">
+                        <span>
+                            Comment/Reply
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="crystal">&nbsp;</div>
+    </div>
+</div>
+
+<script>
+    $('.jqte-test').jqte();
+    var jqteStatus = true;
+    $(".status").click(function()
+    {
+        jqteStatus = jqteStatus ? false : true;
+        $('.jqte-test').jqte({"status" : jqteStatus, "linktypes": ["Web URL", "E-mail", "Picture"]})
+    });
+</script>

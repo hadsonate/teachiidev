@@ -1,0 +1,148 @@
+<div class="register-component-wrap">
+    <div class="form-wrap">
+        <div class="register-banner-wrap">
+            &nbsp;
+        </div>
+        <div class="register-form-wrap">
+            <form method="post" action="/admin/processnotification/">
+                <!--                account-->
+
+                <div class="element-block">
+                    <p class="label">
+                        <span class="bullet">1</span> Notification Type
+                    </p>
+                </div>
+
+                <!--<div class="element-block">
+                    <input class="input-item" name="username" type="text" required placeholder="Subject" value="" />
+                </div>-->
+                <div class="element-block">
+
+                    <select required class="input-item" name="notification_type" placeholder="Select Notification Type">
+                        <option class="initial" value="">Select Notification Type</option>
+                        <option value="task">Assignment/Task</option>
+                        <option value="event">Event</option>
+                        <option value="memo">Memo</option>
+                        <option value="banner">Banner</option>
+                        <option value="personal">Personal</option>
+                    </select>
+                    <br/>
+                    <br/>
+                </div>
+
+
+                <div class="element-block">
+                    <p class="label">
+                        <span class="bullet">2</span> Notification Contents
+                    </p>
+                </div>
+
+                <div class="element-block">
+                    <input class="input-item" name="title" type="text" required placeholder="Subject/Title" value="" />
+                </div>
+                <div class="element-block">
+                    <textarea name="content" class="jqte-test"></textarea>
+                    <button class="status" type="button">
+                        <span>
+                            Toggle Editor
+                        </span>
+                    </button>
+                </div>
+
+
+
+                <div class="element-block">
+                    <p class="label">
+                        <span class="bullet">3</span> Recipients
+                    </p>
+                </div>
+
+                <div class="element-block">
+                    <input id="emails-list" class="input-item" name="recipients" type="text" required placeholder="Recipients" value="" />
+                </div>
+                <!--<div class="element-block">
+                    <input class="input-item" name="username" type="text" required placeholder="Subject" value="" />
+                </div>-->
+
+
+
+
+
+                <div class="element-block">
+                    <p class="label">
+                        <span class="bullet">4</span> Configurations
+                    </p>
+                </div>
+
+
+                <!--<div class="element-block">
+
+                    <select required class="input-item" name="category" placeholder="Category">
+                        <option class="initial" value="">Select Category</option>
+                        <option value="single">Assignments/Tasks</option>
+                        <option value="married">Events</option>
+                        <option value="widowed">Memo</option>
+                        <option value="divorced">Banners</option>
+                        <option value="divorced">Personal</option>
+                    </select>
+                    <br/>
+                    <br/>
+                </div>
+                <b/>-->
+
+                <div class="element-block">
+
+                    <select required class="input-item" name="urgency" placeholder="Select Level of Urgency">
+                        <option class="initial" value="">Select Level of Urgency</option>
+                        <option class="low" value="1">Low</option>
+                        <option class="medium" value="2">Medium</option>
+                        <option class="high" value="3">High</option>
+                        <option class="major" value="4">Major</option>
+                        <option class="critical" value="5">Critical</option>
+                    </select>
+                    <br/>
+                    <br/>
+                </div>
+
+                <div class="element-block">
+                    <input id="add-to-calendar" name="add_to_calendar" type="checkbox" /> <label for="add-to-calendar" class="sample-label">Add to Calendar Schedule</label>
+                    <br/>
+                    <br/>
+                </div>
+
+                <div class="element-block">
+                    <label class="sample-label">Start Date time</label>
+                    <input class="input-item" name="start_datetime" type="datetime-local" required placeholder="Start Date time" value="" />
+                </div>
+                <div class="element-block">
+                    <label class="sample-label">End Date time</label>
+                    <input class="input-item" name="end_datetime" type="datetime-local" required placeholder="End Date time" value="" />
+                </div>
+
+
+                <div class="element-block">
+                    <button class="form-submit-button" type="submit">
+                        <span>
+                            Create and Send
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="crystal">&nbsp;</div>
+    </div>
+</div>
+<script>
+    $('.jqte-test').jqte();
+    var jqteStatus = true;
+    $(".status").click(function()
+    {
+        jqteStatus = jqteStatus ? false : true;
+        $('.jqte-test').jqte({"status" : jqteStatus, "linktypes": ["Web URL", "E-mail", "Picture"]})
+    });
+</script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery("#emails-list").tokenInput("/admin/getemails/");
+    });
+</script>

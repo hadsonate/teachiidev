@@ -1,0 +1,60 @@
+<div class="dashboard-component-wrap">
+    <div class="grid module-wrap">
+
+
+        <div class="grid-item mailbox-module box-module">
+            <div class="module-title"><span>Directory</span></div>
+            <ul class="mail-list">
+                <?php
+                $filter = $this->getFilter();
+                    $inbox = $this->getInbox();
+                    $starred = $this->getStarred();
+                    $flagged = $this->getFlagged();
+                    $sent = $this->getSent();
+                    $trashed = $this->getTrashed();
+                    $inbox_count = $inbox?$inbox["count"]:0;
+                    $starred_count = $starred?$starred["count"]:0;
+                    $flagged_count = $flagged?$flagged["count"]:0;
+                    $sent_count = $sent?$sent["count"]:0;
+                    $trashed_count = $trashed?$trashed["count"]:0;
+                ?>
+
+                <li><a href="/account/mailbox/inbox"><span>Inbox</span></a><span><?php echo $inbox_count; ?></span></li>
+                <li><a href="/account/mailbox/starred"><span>Starred</span></a><span><?php echo $starred_count; ?></span></li>
+                <li><a href="/account/mailbox/flagged"><span>Flagged</span></a><span><?php echo $flagged_count; ?></span></li>
+                <li><a href="/account/mailbox/sent"><span>Sent</span></a><span><?php echo $sent_count; ?></span></li>
+                <li><a href="/account/mailbox/trashed"><span>Trashed</span></a><span><?php echo $trashed_count; ?></span></li>
+            </ul>
+
+        </div>
+
+        <div class="grid-item timetable-module box-module grid-item--width2">
+            <div class="module-title"><span>Mailbox List  - <?php echo $this->getFilter(); ?></span></div>
+            <?php
+            $list = ${$filter};
+            if($list):
+                ?>
+                <ul class="mail-list">
+                    <?php foreach($list as$k=> $li):
+                        if($k == "count") continue;
+                        ?>
+
+                        <li><p><a href="/pages/notification/<?php echo $li['nid'] ?>"><span><?php echo $li['title'] ?></span></a></p>
+                            <p>by <?php echo $li['username'] ?></p></li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php else: ?>
+                No notifications found.
+            <?php endif; ?>
+        </div>
+
+
+       <!-- <div class="crystal">&nbsp;</div>-->
+    </div>
+</div>
+<script>this
+    $('.grid').masonry({
+        // options
+        itemSelector: '.grid-item'
+    });
+</script>

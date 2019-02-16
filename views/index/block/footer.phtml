@@ -1,0 +1,48 @@
+<?php
+$config = $this->getConfig();
+$settings = $config->settings;
+$base_url = $this->getUrl('');
+?>
+<footer>
+    <div class="links">
+        <ul class="teach-ii">
+            <li><span>Teach II</span></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+
+        <ul class="teach">
+            <li><span>Teach</span></li>
+            <li><a href="#">Responsible Teaching</a></li>
+            <li><a href="#">Why Teach</a></li>
+            <li><a href="#">Refer Teachers</a></li>
+        </ul>
+
+        <ul class="learn">
+            <li><span>Learn</span></li>
+            <li><a href="#">Invite a Friend</a></li>
+            <li><a href="#">Trust & Safety</a></li>
+        </ul>
+
+        <ul class="site">
+            <li><span>Site</span></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        <div class="footer-logo">
+            <img src="<?php echo $base_url.$settings["img_dir"]; ?>/footer-logo.png" />
+        </div>
+        <p>2018 © COPYRIGHT TEACH II. All rights reserved.</p>
+        <ul class="language">
+            <li><a href="#">Language</a></li>
+            <li><a href="#"></a></li>
+        </ul>
+        <ul class="currency">
+            <li><a href="#">Currency</a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </div>
+</footer>

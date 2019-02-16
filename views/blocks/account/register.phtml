@@ -1,0 +1,132 @@
+<div class="register-component-wrap">
+    <div class="form-wrap">
+        <div class="register-banner-wrap">
+            &nbsp;
+        </div>
+        <div class="register-form-wrap">
+            <form method="post" action="/account/registerPost">
+                <!--                account-->
+
+                <div class="element-block">
+                    <p class="label">
+                        <span class="bullet">1</span> Account Details
+                    </p>
+                </div>
+
+                <div class="element-block">
+                    <input class="input-item" name="username" type="text" required placeholder="Username" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="password" type="password" required placeholder="Password" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="email" type="email" required placeholder="Email" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="account_key" type="text" required placeholder="Account Key" value="" />
+                </div>
+
+                <!--                personal -->
+                <div class="element-block">
+                    <p class="label">
+                        <span class="bullet">2</span> Personal Information
+                    </p>
+                </div>
+
+                <div class="element-block">
+                    <input class="input-item" name="first_name" type="text" required placeholder="First Name" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="middle_name" type="text" required placeholder="Middle Name" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="last_name" type="text" required placeholder="Last Name" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="name_suffix" type="text" placeholder="Name Suffix (ex: Jr.)" value="" />
+                </div>
+
+                <div class="element-block">
+                    <input class="input-item" name="date_of_birth" type="date" required placeholder="Date of Birth" value="" />
+                </div>
+                <div class="element-block">
+
+                    <select required class="input-item" name="civil_status" placeholder="Civil Status">
+                        <option class="initial" value="">Select Civil Status</option>
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="widowed">Widowed</option>
+                        <option value="divorced">Divorced</option>
+                    </select>
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="nationality" type="text" required placeholder="Nationality" value="" />
+                </div>
+
+                <div class="element-block">
+                    <input class="input-item" name="contact_person" type="text"  placeholder="Contact Person" value="" />
+                </div>
+
+                <div class="element-block">
+                    <input class="input-item" name="contact_person_phone" type="tel"  placeholder="Contact Person Number" value="" />
+                </div>
+
+
+                <!--  address          -->
+                <div class="element-block">
+                    <p class="label">
+                        <span class="bullet">3</span> Address Information
+                    </p>
+                </div>
+
+                <div class="element-block">
+                    <input class="input-item" name="address_1" type="text" required placeholder="Address 1" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="address_2" type="text" placeholder="Address 2" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="city" type="text" required placeholder="City" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="province" type="text" required placeholder="Province" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="region" type="text" required placeholder="Region" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="country" type="text" required placeholder="Country" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="zipcode" type="text" required placeholder="Zip Code" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="phone" type="text" required placeholder="Phone 1" value="" />
+                </div>
+                <div class="element-block">
+                    <input class="input-item" name="phone_2" type="text" placeholder="Phone 2" value="" />
+                </div>
+
+
+
+
+
+
+
+                <div class="element-block">
+                    <button class="form-submit-button" type="submit">
+                        <span>
+                            Join NOW!
+                        </span>
+                    </button>
+                    <p class="note-text">
+                        Already a member? <a href="/account/login" title="Sign In Here!" class="sign-up-text">
+                            Sign In Here!</a>
+                    </p>
+
+                </div>
+            </form>
+        </div>
+        <div class="crystal">&nbsp;</div>
+    </div>
+</div>

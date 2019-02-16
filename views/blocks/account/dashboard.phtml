@@ -1,0 +1,398 @@
+<?php
+$config = $this->getConfig();
+$settings = $config->settings;
+$base_url = $this->getUrl('');
+$request = $_REQUEST;
+
+/** @var User $model */
+$model = Model::getModel('user');
+?>
+<div class="content-wrapper account">
+    <div class="wrapper">
+        <div class="nav sidebar">
+            <div class="user">
+                <img src="<?php echo $base_url.$settings["img_dir"]; ?>/profile.jpeg" />
+                <span>Hi, <?= $model->getName()?></span>
+            </div>
+            <ul>
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a class="for-tab" id="trigger-dashboard" href="#section-dashboard">Dashboard</a>
+                </li>
+                <li>
+                    <i class="fa fa-inbox"></i>
+                    <a class="for-tab" id="trigger-messaging" href="#section-messaging">Messaging</a>
+                </li>
+                <li>
+                    <i class="fa fa-book"></i>
+                    <a class="for-tab" id="trigger-class" href="#section-class">Classes</a>
+                </li>
+                <li>
+                    <i class="fa fa-users-cog"></i>
+                    <a class="for-tab" id="trigger-profile" href="#section-profile">Profile</a>
+                </li>
+                <li>
+                    <i class="fa fa-credit-card"></i>
+                    <a class="for-tab" id="trigger-payment-data" href="#section-payment-data">Payment Data</a>
+                </li>
+                <li>
+                    <i class="fa fa-exclamation-circle"></i>
+                    <a class="for-tab" id="trigger-help" href="#section-help">Help</a>
+                </li>
+                <li>
+                    <i class="fa fa-exclamation-circle"></i>
+                    <a id="trigger-logout" href="<?php echo $this->getUrl('account/logout') ?>">Logout</a>
+                </li>
+                <li></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div id="section-dashboard" class="tab-content">
+                <span class="title">Calendar</span>
+
+                <?php $this->getBlock("profile-calendar") ?>
+
+                <div class="ledger">
+                    <div class="ledger">
+                        <span class="enrolled">Enrolled Class</span>
+                        <span class="opened">Opened Class</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="section-messaging" class="tab-content">
+                <span class="title">Messages</span>
+
+                <ul class="messages">
+                    <li>
+                        <img src="<?php echo $base_url.$settings["img_dir"]; ?>/profile.jpeg" alt="teacher" />
+                        <span class="name private">Max</span>
+                        <p><span class="from">Max:</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                        <span class="time">12:20 PM</span>
+                    </li>
+
+                    <li>
+                        <span class="sub-img green">E&C</span>
+                        <span class="name">English & Culture Class</span>
+                        <p><span class="from">You:</span> See you later in class!</p>
+                        <span class="date">11/30/2018</span>
+                    </li>
+
+                    <li>
+                        <span class="sub-img blue">DFP</span>
+                        <span class="name">Documentary Film Production Class</span>
+                        <p><span class="from">John:</span> Nice meeting you guys! Can�t wait for the next class session next week!</p>
+                        <span class="date">11/25/2018</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="section-class" class="tab-content">
+                <div class="classes">
+                    <ul class="header">
+                        <li class="active">
+                            <h4 class="accordion-toggle opened-classes">Opened Classes</h4>
+                        </li>
+
+                        <li>
+                            <h4 class="accordion-toggle enrolled-classes">Enrolled Classes</h4>
+                        </li>
+                        <li class="filter">
+                            <select>
+                                <option value="In Session">In Session</option>
+                                <option value="Sample">Sample</option>
+                                <option value="Sample">Sample</option>
+                                <option value="Sample">Sample</option>
+                            </select>
+                        </li>
+                    </ul>
+
+                    <div class="accordion-content opened-classes active">
+
+                        <span class="title">In Session</span>
+
+                        <ul class="session">
+                            <li>
+                                <span class="subj">English & Culture</span>
+
+                                <ul class="info">
+                                    <li class="date">
+                                        <i class="fa fa-calendar-alt"></i><span>Nov. 22-24,2018</span>
+                                    </li>
+
+                                    <li class="time">
+                                        <i class="fa fa-clock"></i><span>10:00am - 11:30am</span>
+                                    </li>
+
+                                    <li class="location">
+                                        <i class="fa fa-map-marker-alt"></i><<span>???/TW</span>
+                                    </li>
+
+                                    <li class="student-count">
+                                        <i class="fa fa-users"></i><span>6 Students</span>
+                                    </li>
+                                </ul>
+
+                                <div class="divider"></div>
+                            </li>
+                            <li>
+                                <span class="subj">English & Culture</span>
+
+                                <ul class="info">
+                                    <li class="date">
+                                        <i class="fa fa-calendar-alt"></i><span>Nov. 22-24,2018</span>
+                                    </li>
+
+                                    <li class="time">
+                                        <i class="fa fa-clock"></i><span>10:00am - 11:30am</span>
+                                    </li>
+
+                                    <li class="location">
+                                        <i class="fa fa-map-marker-alt"></i><<span>???/TW</span>
+                                    </li>
+
+                                    <li class="student-count">
+                                        <i class="fa fa-users"></i><span>6 Students</span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="accordion-content enrolled-classes">
+                        <span class="title">In Queue</span>
+
+                        <ul class="queue">
+                            <li>
+                                <span class="subj">HARP??</span>
+                                <span>by</span>
+                                <span class="teacher">Jeremy Han</span>
+
+
+                                <ul class="info">
+                                    <li class="date">
+                                        <i class="fa fa-calendar-alt"></i><span>Nov. 22-24,2018</span>
+                                    </li>
+
+                                    <li class="time">
+                                        <i class="fa fa-clock"></i><span>10:00am - 11:30am</span>
+                                    </li>
+
+                                    <li class="location">
+                                        <i class="fa fa-map-marker-alt"></i><<span>???/TW</span>
+                                    </li>
+
+                                    <li class="student-count">
+                                        <i class="fa fa-users"></i><span>6 Students</span>
+                                    </li>
+                                </ul>
+
+                                <div class="divider"></div>
+                            </li>
+                            <li>
+                                <span class="subj">English & Culture</span>
+
+                                <ul class="info">
+                                    <li class="date">
+                                        <i class="fa fa-calendar-alt"></i><span>Nov. 22-24,2018</span>
+                                    </li>
+
+                                    <li class="time">
+                                        <i class="fa fa-clock"></i><span>10:00am - 11:30am</span>
+                                    </li>
+
+                                    <li class="location">
+                                        <i class="fa fa-map-marker-alt"></i><<span>???/TW</span>
+                                    </li>
+
+                                    <li class="student-count">
+                                        <i class="fa fa-users"></i><span>6 Students</span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="section-profile" class="tab-content">
+                <?php
+                    $uname = $model->getUsername();
+                    $fname = $model->getName();
+                    $lname = $model->getLastname();
+                    $email = $model->getEmail();
+                ?>
+                <form class="sign_up_modal_form" action="<?php echo $this->getUrl('account/updateprofilePost') ?>" method="post" >
+                    <input type="text" required name="username" placeholder="Username"
+                           value="<?= isset($uname) ? $uname : ''?>"/>
+                    <br>
+                    <input type="text" required name="first_name" placeholder="First Name"
+                           value="<?= isset($fname) ? $fname : ''?>"/>
+                    <br>
+                    <input type="text" required name="last_name" placeholder="Last Name"
+                           value="<?= isset($lname) ? $lname : ''?>"/>
+                    <br>
+                    <input type="email" name="email" placeholder="Email Address"
+                           value="<?= isset($email) ? $email : ''?>"/>
+                    <br>
+                    <input type="password" name="password" placeholder="Change Password"/>
+                    <br>
+                    <input type="password" name="password" placeholder="Old Password"/>
+                    <p class="bdate-title">Birthdate</p>
+                    <div class="bdate">
+                        <?php
+                        $year_now = date("Y");
+                        $year_min = $year_now-50;
+                        $dob = new DateTime($model->getDob());
+                        ?>
+                        <select name="dob_year" required>
+                            <option value="">Year</option>
+                            <?php for($y = $year_now; $y>=$year_min; $y--): ?>
+                                <option value="<?php echo $y ?>"<?php if($dob->format('Y') == $y): ?>selected="selected"<?php endif; ?>><?php echo $y ?></option>
+                            <?php endfor; ?>
+                        </select>
+                        <select name="dob_month" required>
+                            <option value="">Month</option>
+                            <?php for($m = 1; $m<=12; $m++): ?>
+                                <?php
+                                (string)$zm = $m>9?(string)$m:"0{$m}";
+                                $mname = date("M", strtotime("2000-{$zm}-01"));
+                                ?>
+                                <option value="<?php echo $m ?>"<?php if($dob->format('m') == $m): ?>selected="selected"<?php endif; ?>><?php echo $mname ?></option>
+                            <?php endfor; ?>
+                        </select>
+                        <select name="dob_day" required>
+                            <option value="">Day</option>
+                            <?php for($d = 1; $d<=31; $d++): ?>
+                                <option value="<?php echo $d ?>"<?php if($dob->format('d') == $d): ?>selected="selected"<?php endif; ?>><?php echo $d ?></option>
+                            <?php endfor; ?>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="button sign-up">Save Details</button>
+                </form>
+            </div>
+
+            <div id="section-payment-data" class="tab-content">
+                Payment Data
+            </div>
+
+            <div id="section-help" class="tab-content">
+
+                <span>Frequently Asked Questions</span>
+                <div class="frequently-asked-questions">
+                    <span>How can I book classes?</span>
+                    <li>You can book classes by going to the class detail page, as long as the booking is still open</li>
+                    <span>Can I book classes and start my own classes at the same time</span>
+                    <li>Yes, you can book classes of others and create </li>
+                    <span>How can I cancel a class booking?</span>
+                    <li>Cancelling a class booking can be done in the Classes tab or on the Details Page </li>
+                    <span>Can I book my classes and start my own classes at the same time?</span>
+                    <li>Yes, you can book classes of others and create your own classes, as long as the schedule is still open.</li>
+                    <span>How can I book classes?</span>
+                    <li>You can book classes by going to the class details page, as long as the booking is still open.</li>
+                    <span>Can I book classes and start my own classes at the same time?</span>
+                    <li>Yes, you can book classes of others and create your own classes, as long as the schedule is not conflicted.</li>
+                    <span>How can I cancel a class booking?</span>
+                    <li>Cancelling a class booking can be done in the Classes Tab or on the Details Page of the specific class.</li>
+                </div>
+                    <span class="help_title_2">Can't find the answers you're looking for? Send us your question!</span>
+                    <button type="submit" class="button contactus">Contact Us</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contactus_modal" class="modal">
+
+    <!-- Contact Us content -->
+    <div class="contactus contactus-content">
+        <span class="close-contactus">&times;</span>
+        <form class="contact_us_modal_form" action="<?php echo $this->getUrl('account/HelpPost') ?>" method="post" >
+            <select name="purpose">
+                <option value="In Session">I have an inquiry</option>
+                <option value="Sample">I want to file a complaint</option>
+                <option value="Sample">Report a bug</option>
+                <option value="Sample">I have a suggestion regarding something</option>
+            </select>
+            <input type="text" name="subject" placeholder="Subject"/>
+            <textarea name="comment" rows="5" cols="40"></textarea>
+            <span>Note: In order for us to avoid spam emails. Users can only send up to 3 emails per day.</span>
+            <button type="submit" class="button contactus-send">Send</button>
+        </form>
+    </div>
+    <div class="contactus contactus-sent">
+        <span class="close-contactus">&times;</span>
+        <span>SENT</span>
+        <span>Thank you for reaching out to us!</span>
+        <span>We will try our best to respond as soon as possible.</span>
+        <span>Any update regarding your report will be sent directly to</span>
+        <span>your email.</span>
+        <a href="<?php echo $this->getUrl('account/dashboard?trigger=help') ?>">Close</a>
+    </div>
+
+</div>
+
+<script>
+    var modalContainer = $("#contactus_modal");
+
+    $(".contactus").click(function() {
+        modalContainer.show();
+        modalContainer.addClass("active");
+        $("#contactus_modal .contactus.contactus_modal-content").addClass("active");
+    });
+
+
+
+    $(".content-wrapper.profile ul.collapsible li").click(function(){
+        $(this).toggleClass("active");
+    });
+
+    $(document).ready(function () {
+        $('.nav ul li:first').addClass('active');
+        $('.nav ul li a.for-tab').click(function (event) {
+            event.preventDefault();
+            var content = $(this).attr('href');
+            $(this).parent().addClass('active');
+            $(this).parent().siblings().removeClass('active');
+            $(content).show();
+            $(content).siblings('.tab-content').hide();
+        });
+
+        var openedClassesContent = $('.classes .accordion-content.opened-classes');
+        var enrolledClassesContent = $('.classes .accordion-content.enrolled-classes');
+
+        $('.classes h4.opened-classes').click(function(){
+            $(this).parent('li').addClass('active');
+            $('.classes h4.enrolled-classes').parent('li').removeClass('active');
+            openedClassesContent.show();
+            enrolledClassesContent.hide();
+            openedClassesContent.addClass('active');
+            enrolledClassesContent.removeClass('active');
+        });
+
+        $('.classes h4.enrolled-classes').click(function(){
+            $(this).parent('li').addClass('active');
+            $('.classes h4.opened-classes').parent('li').removeClass('active');
+            openedClassesContent.hide();
+            enrolledClassesContent.show();
+            enrolledClassesContent.addClass('active');
+            openedClassesContent.removeClass('active');
+        });
+        <?php
+        $trigger = isset($request["trigger"])?$request["trigger"]:false;
+        if($trigger):
+        ?>
+        $('#trigger-<?php echo $trigger ?>').trigger("click");
+        <?php endif; ?>
+        <?php
+        $submit = isset($request["submit"])?$request["submit"]:false;
+        if($trigger && $submit):
+            ?>
+        modalContainer.show();
+        modalContainer.addClass("active");
+        $("#<?= $submit?>_modal .<?= $submit?>.<?= $submit?>-content").removeClass("active");
+        $("#<?= $submit?>_modal .<?= $submit?>.<?= $submit?>-sent").addClass("active");
+        <?php endif; ?>
+    });
+</script>

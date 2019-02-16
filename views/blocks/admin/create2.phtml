@@ -1,0 +1,49 @@
+<div class="register-component-wrap">
+    <div class="form-wrap">
+        <div class="register-banner-wrap">
+            &nbsp;
+        </div>
+        <div class="register-form-wrap">
+            <form method="post" action="/admin/create/3">
+                <!--                account-->
+
+                <div class="element-block">
+                    <p class="label">
+                        <span class="bullet">2</span> Notification Contents
+                    </p>
+                </div>
+
+                <div class="element-block">
+                    <input class="input-item" name="username" type="text" required placeholder="Subject/Title" value="" />
+                </div>
+                <div class="element-block">
+                    <textarea name="textarea" class="jqte-test"><b>My contents are from <u><span style="color:rgb(0, 148, 133);">TEXTAREA</span></u></b></textarea>
+                    <button class="status" type="button">
+                        <span>
+                            Toggle Editor
+                        </span>
+                    </button>
+                </div>
+
+                <div class="element-block">
+                    <button class="form-submit-button" type="submit">
+                        <span>
+                            NEXT>>>
+                        </span>
+                    </button>
+
+                </div>
+            </form>
+        </div>
+        <div class="crystal">&nbsp;</div>
+    </div>
+</div>
+<script>
+    $('.jqte-test').jqte();
+    var jqteStatus = true;
+    $(".status").click(function()
+    {
+        jqteStatus = jqteStatus ? false : true;
+        $('.jqte-test').jqte({"status" : jqteStatus, "linktypes": ["Web URL", "E-mail", "Picture"]})
+    });
+</script>

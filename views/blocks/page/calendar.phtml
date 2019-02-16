@@ -1,0 +1,27 @@
+<div class="register-component-wrap">
+    <div class="form-wrap">
+        <div class="register-banner-wrap">
+            &nbsp;
+        </div>
+        <div class="register-form-wrap">
+            <?php
+            $events = [
+                '2018-09-05' => [
+                    'text' => "An event for the 5 SEP 2018",
+                    'href' => "http://example.com/link/to/event"
+                ],
+                '2018-09-20' => [
+                    'text' => "An event for the 20 SEP 2018",
+                    'href' => "/path/to/event"
+                ],
+            ];
+            $y = date("Y");
+            $mF = date("F");
+
+            echo "<h2>{$mF} {$y}</h2>";
+            echo $this->build_html_calendar(date("Y"), date("n"), $events);
+            ?>
+        </div>
+        <div class="crystal">&nbsp;</div>
+    </div>
+</div>

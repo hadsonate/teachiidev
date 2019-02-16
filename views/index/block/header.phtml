@@ -1,0 +1,648 @@
+<?php
+$config = $this->getConfig();
+$settings = $config->settings;
+$base_url = $this->getUrl('');
+?>
+<?php if (!isset($_SESSION['user_is_loggedin']) || $_SESSION['user_is_loggedin'] != true ): ?>
+    <header class="guest">
+        <div class="header-container">
+        <span class="logo">
+            <a href="<?php echo $base_url ?>"><img src="<?php echo $base_url.$settings["img_dir"]; ?>/logo-loggedin.png" alt="Teach ii Logo"></a>
+        </span>
+
+            <ul class="nav">
+                <li class="search">
+                <!--     search module               -->
+                    <div class="search">
+                        <div class="filter">
+                            <select>
+                                <option value="">Filter</option>
+                                <option value="Filter 1">Filter 1</option>
+                                <option value="Filter 2">Filter 2</option>
+                                <option value="Filter 3">Filter 3</option>
+                            </select>
+                        </div>
+                        <input type="text" placeholder="Find the class you're looking for"/>
+                        <a href="#" class="button search">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+                </li>
+                <li><a class="sign-up-button" href="#">Sign Up</a></li>
+                <li><a class="login-button" href="#">Login</a></li>
+<!--                <li><a href="#" class="default button teach">Teach</a></li>-->
+            </ul>
+        </div>
+    </header>
+<?php else: ?>
+    <header class="logged-in">
+        <div class="header-container">
+        <span class="logo">
+            <a href="<?php echo $base_url ?>"><img src="<?php echo $base_url.$settings["img_dir"]; ?>/logo-loggedin.png" alt="Teach ii Logo"></a>
+        </span>
+
+            <ul class="nav">
+                <li class="search">
+                    <div class="search">
+                        <div class="filter">
+                            <select>
+                                <option value="">Filter</option>
+                                <option value="Filter 1">Filter 1</option>
+                                <option value="Filter 2">Filter 2</option>
+                                <option value="Filter 3">Filter 3</option>
+                            </select>
+                        </div>
+                        <input type="text" placeholder="Find the class you're looking for"/>
+                        <a href="#" class="button search">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+                </li>
+                <li><a href="<?php echo $this->getUrl("course") ?>">Courses</a></li>
+                <li><a href="#">Teachers</a></li>
+                <li><a href="<?php echo $this->getUrl("account/dashboard") ?>">My Account</a></li>
+                <li><a href="#" class="default button teach">Teach</a></li>
+            </ul>
+        </div>
+    </header>
+<?php endif ?>
+
+
+
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <?php if(!isset($_SESSION['user_is_loggedin']) || $_SESSION['user_is_loggedin'] == false): ?>
+    <!-- if not logged in start   -->
+    <!-- Login content -->
+    <div class="login modal-content">
+        <span class="close-modal">&times;</span>
+        <?php /***
+        <a href="#" class="btn-social fb"><!--<i class="fa fa-facebook"></i>-->Login with Facebook</a>
+        <a href="#" class="btn-social google"><!--<i class="fa fa-google-plus-g"></i>-->Login with Google</a>
+        <span class="divider">or</span>
+        ***/ ?>
+        <form class="sign_in_modal_form" action="<?php echo $this->getUrl('account/loginPost') ?>" method="post" >
+            <input type="text" name="username" placeholder="Email Address"/>
+            <input type="password" name="password" placeholder="Password"/>
+            <div class="action">
+                <div class="remember">
+                    <input type="checkbox" name="checkbox" id="remember_me" value="value">
+                    <label for="remember_me">Remember me</label>
+                </div>
+                <a class="#">Forgot Password?</a>
+            </div>
+            <button type="submit" class="button login">Login</button>
+        </form>
+    </div>
+
+    <!-- Sign up content -->
+    <div class="sign-up modal-content">
+        <span class="close-modal">&times;</span>
+    <?php /***
+        <a href="#" class="btn-social fb"><!--<i class="fa fa-facebook"></i>-->Continue with Facebook</a>
+        <a href="#" class="btn-social google"><!--<i class="fa fa-google-plus-g"></i>-->Continue with Google</a>
+        <span class="divider">or</span>
+        **/ ?>
+        <button class="button sign-up">Continue with Email</button>
+        <p>By signing up, I agree to TeachII’s <a href="#">Terms of Service,Privacy Policy</a>.</p>
+    </div>
+
+    <!-- Sign up Form -->
+    <div class="sign-up-form modal-content">
+        <span class="close-modal">&times;</span>
+<?php /***
+        <p class="top">Sign up with <a href="#">Facebook</a>or <a href="#">Google</a></p>
+        <span class="divider">or</span>
+ * **/ ?>
+        <form class="sign_up_modal_form" action="<?php echo $this->getUrl('account/registerPost') ?>" method="post">
+            <input type="text" required name="username" placeholder="Username *" />
+            <input type="text" required name="first_name" placeholder="First Name *" />
+            <input type="text" required name="last_name" placeholder="Last Name *" />
+            <input type="email" name="email" placeholder="Email Address"/>
+            <input type="password" required name="password" placeholder="Password *" />
+            <input type="password" required name="confirm_password" placeholder="Confirm Password *" />
+            <p class="bdate-title">Birthdate</p>
+            <div class="bdate">
+                <?php
+                $year_now = date("Y");
+                $year_min = $year_now-50; ?>
+                <select name="dob_year" required>
+                    <option value="">Year</option>
+                    <?php for($y = $year_now; $y>=$year_min; $y--): ?>
+                        <option value="<?php echo $y ?>"><?php echo $y ?></option>
+                    <?php endfor; ?>
+                </select>
+                <select name="dob_month" required>
+                    <option value="">Month</option>
+                    <?php for($m = 1; $m<=12; $m++): ?>
+                        <?php
+                        (string)$zm = $m>9?(string)$m:"0{$m}";
+                        $mname = date("M", strtotime("2000-{$zm}-01"));
+                        ?>
+                        <option value="<?php echo $m ?>"><?php echo $mname ?></option>
+                    <?php endfor; ?>
+                </select>
+                <select name="dob_day" required>
+                    <option value="">Day</option>
+                    <?php for($d = 1; $d<=31; $d++): ?>
+                        <option value="<?php echo $d ?>"><?php echo $d ?></option>
+                    <?php endfor; ?>
+                </select>
+            </div>
+
+        <p>By signing up, I agree to TeachII’s <a href="#">Terms of Service,Privacy Policy</a>.</p>
+        <button type="submit" class="button sign-up">Continue with Email</button>
+        </form>
+    </div>
+    <!-- if not logged in end   -->
+    <?php endif ?>
+    <!-- Learn More -->
+    <div class="learn-more modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="section-classes" class="tab-content">
+            <div class="classes">
+                <ul class="header">
+                    <li class="active student">
+                        <h4 class="accordion-toggle student">Students</h4>
+                    </li>
+
+                    <li class="teacher">
+                        <h4 class="accordion-toggle teacher">Teachers</h4>
+                    </li>
+                </ul>
+
+                <div class="accordion-content student active">
+                    <h1>How it works for Students</h1>
+                    <img src="<?php echo $base_url.$settings["img_dir"]; ?>/learn-more-students-content.jpg" alt="How it works for Students Content" />
+                </div>
+                <div class="accordion-content teacher">
+                    <h1>How it works for Teachers</h1>
+                    <img src="<?php echo $base_url.$settings["img_dir"]; ?>/learn-more-teachers-content.jpg" alt="How it works for Students Content" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="teach modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Create a Class</h2>
+
+        <ul class="steps-progress">
+            <li class="step details active">
+                <span class="count">
+                    <span>1</span>
+                </span>
+                <span class="label">Details</span>
+            </li>
+            <li class="step schedule">
+                <span class="count">
+                    <span>2</span>
+                </span>
+                <span class="label">Schedule</span>
+            </li>
+            <li class="step publish">
+                <span class="count">
+                    <span>3</span>
+                </span>
+                <span class="label">Publish</span>
+            </li>
+        </ul>
+
+        <div id="teach-step1" class="steps active">
+            <form>
+                <div class="field">
+                    <label>Class Name</label>
+                    <div class="choice">
+                        <input type="text" name="class-name"/>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Brief</label>
+                    <div class="choice">
+                        <textarea class="brief-description" name="brief-description" ></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Categorization</label>
+                    <div class="choice">
+                        <ul>
+                            <li>
+                                <input type="radio" name="art" id="art" value="art">
+                                <label for="art">Art</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="cooking" id="cooking" value="cooking">
+                                <label for="cooking">Cooking</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="technology" id="technology" value="technology">
+                                <label for="technology">Technology</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="lifestyle" id="lifestyle" value="lifestyle">
+                                <label for="lifestyle">Lifestyle</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="music" id="music" value="music">
+                                <label for="music">Music</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="language" id="language" value="language">
+                                <label for="language">Language</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="performing-arts" id="performing-arts" value="performing-arts">
+                                <label for="performing-arts">Performing Arts</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Class Type</label>
+                    <div class="choice">
+                        <ul>
+                            <li>
+                                <input type="radio" name="class" id="class" value="class">
+                                <label for="class">Class</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="project" id="project" value="project">
+                                <label for="project">Project</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="hybrid" id="hybrid" value="hybrid">
+                                <label for="hybrid">Hybrid</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="other" id="other" value="other">
+                                <label for="other">Other</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="field learning-styles">
+                    <label>Learning Styles</label>
+                    <div class="choice">
+                        <ul>
+                            <li>
+                                <input type="checkbox" name="homeschooling" id="homeschooling" value="homeschooling">
+                                <label for="homeschooling">Homeschooling</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="tutoring" id="tutoring" value="tutoring">
+                                <label for="tutoring">Tutoring</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="after-school" id="after-school" value="after-school">
+                                <label for="after-school">After School</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="mentorship" id="mentorship" value="mentorship">
+                                <label for="mentorship">Mentorship</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="cram-school" id="cram-school" value="cram-school">
+                                <label for="cram-school">Cram School</label>
+                            </li>
+                            <li class="other">
+                                <input type="checkbox" name="other" id="other" value="other">
+                                <label for="other">Other</label>
+                                <input type="text" name="other"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Age Limit</label>
+                    <div class="choice">
+                        <ul>
+                            <li>
+                                <input type="radio" name="no-limit" id="no-limit" value="no-limit">
+                                <label for="no-limit">No Limit</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="set-limit" id="set-limit" value="set-limit">
+                                <label for="set-limit">Set Limit</label>
+                                <input type="text" name="from" />
+                                <span>to</span>
+                                <input type="text" name="to" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Frequency</label>
+                    <div class="choice">
+                        <ul>
+                            <li>
+                                <input type="radio" name="single" id="single" value="single">
+                                <label for="single">Single</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="multiple" id="multiple" value="multiple">
+                                <label for="multiple">Multiple</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="field location">
+                    <label>Location</label>
+                    <div class="choice">
+                        <ul>
+                            <li>
+                                <input type="radio" name="physical" id="physical" value="physical">
+                                <label for="physical">Physical Venue</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="remote" id="remote" value="remote">
+                                <label for="remote">Remote/Online Messaging</label>
+
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" name="line" id="line" value="line">
+                                        <label for="line">LINE</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="facebook" id="facebook" value="facebook">
+                                        <label for="facebook">Facebook</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="FaceTime" id="FaceTime" value="FaceTime">
+                                        <label for="FaceTime">FaceTime</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="skype" id="skype" value="skype">
+                                        <label for="skype">Skype</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="WeChat" id="WeChat" value="WeChat">
+                                        <label for="WeChat">WeChat</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="Other" id="Other" value="Other">
+                                        <label for="Other">Other</label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Enrollee Limit</label>
+                    <div class="choice">
+                        <input type="text" name="enrollee-limit" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <ul>
+                        <li>
+                            <input type="radio" name="pay-forward" id="pay-forward" value="pay-forward">
+                            <label for="pay-forward">Pay it Forward</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="set-price" id="set-price" value="set-price">
+                            <label for="set-price">Set Price</label>
+                            <select>
+                                <option value="TWD">TWD</option>
+                                <option value="TWD">TWD2</option>
+                                <option value="TWD">TWD3</option>
+                                <option value="TWD">TWD4</option>
+                            </select>
+                            <input type="text" name="set-price" />
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="field">
+                    <label>Canellation Policy</label>
+                    <div class="choice">
+                        <select>
+                            <option value="">Pay for classes attended</option>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                            <option value="">Option 4</option>
+                            <option value="">Option 5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Enrollment Deadline</label>
+                    <div class="choice">
+                        <select>
+                            <option value="">One week before start date</option>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                            <option value="">Option 4</option>
+                            <option value="">Option 5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Class Rules</label>
+                    <div class="choice">
+                        <textarea name="class=rules"></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Video Intro</label>
+                    <div class="choice">
+                        <a href="#">+ Add a Video Introduction</a>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Book Material</label>
+                    <div class="choice">
+                        <a href="#">+ Add a Book Material</a>
+                    </div>
+                </div>
+
+                <a href="javascript:void(0)" class="button step-1">Next</a>
+            </form>
+        </div>
+
+        <div id="teach-step2" class="steps">
+            <?php include 'classes/teach-calendar.phtml'; ?>
+            <a href="#" class="btn back">Back</a>
+            <a href="#" class="btn proceed">Proceed</a>
+        </div>
+
+        <div id="teach-step3" class="steps">
+            <ul>
+                <li>Class Name</li>
+                <li>Brief</li>
+                <li>Categorization</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+
+            <ul>
+                <li>Photography101</li>
+                <li>This is a sample brief description.</li>
+                <li>Technology</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 500) {
+                $("header").addClass("shrink");
+            } else {
+                $("header").removeClass("shrink");
+            }
+        });
+
+        // var modalContainer = $("#modal");
+        //
+        // $("#login").click(function() {
+        //     modalContainer.show();
+        //     modalContainer.addClass("active");
+        //     $("#modal .login.modal-content").addClass("active");
+        //     $("#modal .sign-up.modal-content").removeClass("active");
+        // });
+        //
+        // $("#signup").click(function() {
+        //     modalContainer.show();
+        //     modalContainer.addClass("active");
+        //     $("#modal .login.modal-content").removeClass("active");
+        //     $("#modal .sign-up.modal-content").addClass("active");
+        //     $("#modal .sign-up-form.modal-content").removeClass("active");
+        // });
+        //
+        // $(".button.sign-up").click(function() {
+        //     $("#modal .sign-up.modal-content").removeClass("active");
+        //     $("#modal .sign-up-form.modal-content").addClass("active");
+        // });
+        //
+        // $(".close-modal").click(function () {
+        //     modalContainer.hide();
+        //     modalContainer.removeClass("active");
+        //     $("#modal .login.modal-content").removeClass("active");
+        //     $("#modal .sign-up.modal-content").removeClass("active");
+        // });
+
+        var modalContainer = $("#modal");
+
+        $(".login-button").click(function() {
+            modalContainer.show();
+            modalContainer.addClass("active");
+            $("#modal .login.modal-content").addClass("active");
+            $("#modal .sign-up.modal-content").removeClass("active");
+            $("#modal .learn-more.modal-content").removeClass("active");
+        });
+
+        $(".sign-up-button").click(function() {
+            modalContainer.show();
+            modalContainer.addClass("active");
+            $("#modal .login.modal-content").removeClass("active");
+            $("#modal .sign-up.modal-content").addClass("active");
+            $("#modal .sign-up-form.modal-content").removeClass("active");
+            $("#modal .learn-more.modal-content").removeClass("active");
+        });
+
+        $(".button.sign-up").click(function() {
+            $("#modal .sign-up.modal-content").removeClass("active");
+            $("#modal .sign-up-form.modal-content").addClass("active");
+            $("#modal .learn-more.modal-content").removeClass("active");
+        });
+
+        $(".close-modal").click(function () {
+            modalContainer.hide();
+            modalContainer.removeClass("active");
+            $("#modal .login.modal-content").removeClass("active");
+            $("#modal .sign-up.modal-content").removeClass("active");
+            $("#modal .sign-up-form.modal-content").removeClass("active");
+            $("#modal .learn-more.modal-content").removeClass("active");
+        });
+
+        $(".teach.modal-content .close-modal").click(function () {
+            $(".teach.modal-content #teach-step1").addClass("active");
+            $(".teach.modal-content #teach-step2").removeClass("active");
+            $(".teach.modal-content #teach-step3").removeClass("active");
+            jQuery(".modal .modal-content.teach .steps-progress li.schedule").removeClass("active");
+            jQuery(".modal .modal-content.teach .steps-progress li.publish").removeClass("active");
+        });
+
+        $(".content-wrapper.home .banner.item .button.primary").click(function () {
+            modalContainer.show();
+            modalContainer.addClass("active");
+            $("#modal .learn-more.modal-content").addClass("active");
+
+        });
+
+        $("header.logged-in ul.nav li a.button.teach").click(function () {
+            $("#modal .teach.modal-content").addClass("active");
+            modalContainer.show();
+            modalContainer.addClass("active");
+            $("#modal .login.modal-content").removeClass("active");
+            $("#modal .sign-up.modal-content").removeClass  ("active");
+            $("#modal .sign-up-form.modal-content").removeClass("active");
+            $("#modal .learn-more.modal-content").removeClass("active");
+        });
+
+        jQuery("#teach-step1 .button.step-1").click(function () {
+            jQuery("#teach-step1").removeClass("active");
+            jQuery("#teach-step2").addClass("active");
+            jQuery(".modal .modal-content.teach .steps-progress li.schedule").addClass("active");
+        });
+
+        jQuery("#teach-step2 .btn.back").click(function () {
+            jQuery("#teach-step2").removeClass("active");
+            jQuery("#teach-step1").addClass("active");
+        });
+
+        jQuery("#teach-step2 .btn.proceed").click(function () {
+            jQuery("#teach-step2").removeClass("active");
+            jQuery("#teach-step3").addClass("active");
+            jQuery(".modal .modal-content.teach .steps-progress li.publish").addClass("active");
+        });
+
+        var studentContent = $('.classes .accordion-content.student');
+        var teacherContent = $('.classes .accordion-content.teacher');
+
+        $('.classes h4.student').click(function(){
+            $(this).parent('li').addClass('active');
+            $('.classes h4.teacher').parent('li').removeClass('active');
+            studentContent.show();
+            teacherContent.hide();
+            studentContent.addClass('active');
+            teacherContent.removeClass('active');
+        });
+
+        $('.classes h4.teacher').click(function(){
+            $(this).parent('li').addClass('active');
+            $('.classes h4.student').parent('li').removeClass('active');
+            studentContent.hide();
+            teacherContent.show();
+            teacherContent.addClass('active');
+            studentContent.removeClass('active');
+        });
+
+        $(".search > .search-content .block .content > a").on('click', function(){
+            $(this).toggleClass("active");
+        });
+    });
+</script>
